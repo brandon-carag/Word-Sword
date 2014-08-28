@@ -1,14 +1,24 @@
-#Tested and Validated this works
+def create_basic_categories
+  categories=['Anger','Lust','Fear','Depression','Anxiety']
+  categories.each do |category|
+    Category.create(name:category)
+  end
+end
+
+
 def add_verses_to_model_from_file
-f = File.open("test_verses.txt", "r")
+f = File.open("testing.txt", "r")
 f.each_line do |line|
-  Verse.create(reference:line.chomp)
+  #The next line checks for duplicates
+  Verse.create(reference:line.chomp.split(',', 2).first) unless Verse.find_by(reference:line.chomp.split(',', 2).first)
 end
 f.close
 end
 
+
 def add_information_to_join_table 
-f = File.open("csv.txt", "r")
+#MAKE SURE YOU VALIDATE WHETHER THE CATEGORIES EXIST
+f = File.open("testing.txt", "r")
 f.each_line do |line|
   line.chomp!
   ref=line.split(',', 2).first
@@ -23,7 +33,25 @@ f.each_line do |line|
   VerseCategory.create(verse_id:vers_id,category_id:cat_id)
 end
 f.close
+
 end
 
+def print_input_file_lines 
+f = File.open("testing.txt", "r")
+f.each_line do |line|
+  line.chomp!
+  puts line
+end
+f.close
+end
+
+def delete_all_data
+  arr=[Verse,Category,VerseCategory]
+  arr.each{|arr_element|arr_element.delete_all}
+end
+
+delete_all_data
+create_basic_categories
 add_verses_to_model_from_file
 add_information_to_join_table 
+
