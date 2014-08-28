@@ -1,8 +1,14 @@
 <strong>I'm feeling:</strong>
 <br>
 <% @all_categories.each do|category| %>
+<br>
 
-<%= link_to category.name, verse_path(Verse.first) %>
+<% if category.verses.blank? %>
+puts "Bad Category" <!-- #MAKE SURE TO INCORPORATE LOGIC TO CONSIDER BLANKS -->
+<% else %>
+<%= link_to category.name, verse_path(category.verses.sample) %>
+<% end %>
+<!-- category.verses.sample -->
 <br>
 <% end %>
 
