@@ -1,6 +1,4 @@
 class Category < ActiveRecord::Base
-  def index
-    @all_categories=Category.all
-    binding.pry
-  end
+has_many :verse_categories
+has_many :verses, through: :verse_categories
 end

@@ -2,8 +2,8 @@
 puts "Welcome to ESV bible passage lookup."
 puts "Enter the passage (i.e. Rom 3:15-20) or 'exit' to end."
 
+
 require 'net/http'
-require 'pry'
 
 class ESV
   def initialize(key)
@@ -31,7 +31,7 @@ end
 
 bible = ESV.new(ARGV[0] || 'IP')
 
-binding.pry
+
 
 while(true)
   print 'Passage> '
