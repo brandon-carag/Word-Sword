@@ -1,14 +1,26 @@
-<strong>I'm feeling:</strong>
-<br>
+<small>"For the word of God is living and active and sharper than any two-edged sword..."</small>
+<h4>I am fighting:</h4>
+<div class="btn-group-vertical">
 <% @all_categories.each do|category| %>
-<br>
 
 <% if category.verses.blank? %>
-puts "Bad Category" <!-- #MAKE SURE TO INCORPORATE LOGIC TO CONSIDER BLANKS -->
+"Bad Category" <!-- #MAKE SURE TO INCORPORATE LOGIC TO CONSIDER BLANKS -->
 <% else %>
-<%= link_to category.name, verse_path(category.verses.sample) %>
-<% end %>
-<!-- category.verses.sample -->
-<br>
+
+<button type="button" class="btn btn-default">
+<b><%= link_to category.name, verse_path(category.verses.sample) %></b>
+</button>
 <% end %>
 
+<!-- category.verses.sample -->
+
+<% end %>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
