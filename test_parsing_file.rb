@@ -7,7 +7,7 @@ end
 
 
 def add_verses_to_model_from_file
-f = File.open("testing.txt", "r")
+f = File.open("seed_file.txt", "r")
 f.each_line do |line|
   #The next line checks for duplicates
   Verse.create(reference:line.chomp.split(',', 2).first) unless Verse.find_by(reference:line.chomp.split(',', 2).first)
@@ -18,7 +18,7 @@ end
 
 def add_information_to_join_table 
 #MAKE SURE YOU VALIDATE WHETHER THE CATEGORIES EXIST
-f = File.open("testing.txt", "r")
+f = File.open("seed_file.txt", "r")
 f.each_line do |line|
   line.chomp!
   ref=line.split(',', 2).first
@@ -37,7 +37,7 @@ f.close
 end
 
 def print_input_file_lines 
-f = File.open("testing.txt", "r")
+f = File.open("seed_file.txt", "r")
 f.each_line do |line|
   line.chomp!
   puts line
