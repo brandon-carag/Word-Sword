@@ -18,18 +18,15 @@ def new
 end
 
 def create
-  binding.pry
-  @verse=Verse.new(params.require(:verse).permit(:reference,category_ids:[]))
-  @category=Category.first
-  if @verse.save
-    redirect_to categories_path
-  else
-    flash[:error] = "Please re-enter the verse reference."
-    redirect_to :back
-  end
-
-
-
+    @verse=Verse.new(params.require(:verse).permit(:reference,category_ids:[]))
+    @category=Category.first
+    if verse_valid?(params["verse"]["reference"]) && @verse.save
+      flash[:alert] = "Your verse was successfully added."
+      redirect_to categories_path
+    else
+      flash[:error] = "There was a problem with saving your verse.  Check to make sure your reference is accurate."
+      redirect_to :back
+    end
 end
 
   def strong_params
@@ -41,5 +38,15 @@ end
     #but because "require(:post).permit! enables you
     #to send things over"
   end
+
+def verse_valid?(supplied_text)
+  passage=supplied_text
+  passage = passage.gsub(/\s/, "+")
+  passage = passage.gsub(/\:/, "%3A")
+  passage = passage.gsub(/\,/, "%2C")
+  crossway_url="http://www.esvapi.org/v2/rest/passageQuery?key=9f13669f8d7125e4&passage=#{passage}&include-headings=false&include-short-copyright=1"
+  Net::HTTP.get(::URI.parse(crossway_url))!="ERROR: No results were found for your search."
+end
+
 
 end
