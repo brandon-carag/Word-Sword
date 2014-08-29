@@ -1,14 +1,4 @@
 <%= @verse_html.html_safe %>
+<br>
+<%= link_to "See another verse on #{@category.name}",verse_path(@category.verses.sample), class: "btn btn-default" %>
 
-<%= link_to "See another verse on #{@category.name}",verse_path(@category.verses.sample) %>
-
-
-<a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
-
-<%= link_to '' do %>
-  <i class="icon-ok fa-qq"></i> Do it@
-<% end %>
-
-<i class="icon-refresh">blah</i>
-
-<i class="icon-search"></i>

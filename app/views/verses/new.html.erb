@@ -1,0 +1,19 @@
+<h3>Add Another Verse</h3>
+
+<div class="well input-group">
+<%= form_for @verse do |f| %>
+  <%= f.label "Verse Reference:" %><br>
+  <%= f.text_field :reference%> <br>
+  <%= f.label "Category:" %> <br>
+ 
+  <select name='verse[category_ids][]'>
+  <%=Category.all.each do |category|%>
+  <option value="<%=category.id%>"><%=category.name%></option>
+  <%end%>
+  </select><br><br>
+
+
+  <%= f.submit "Submit" %>
+<% end %>
+</div>
+

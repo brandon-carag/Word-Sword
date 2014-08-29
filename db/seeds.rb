@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 def create_basic_categories
-  categories=['Anger','Lust','Fear','Depression','Anxiety']
+  categories=['Anger','Lust','Fear','Depression','Anxiety','Pride','Materialism']
   categories.each do |category|
     Category.create(name:category)
   end
@@ -58,6 +58,7 @@ def delete_all_data
   arr.each{|arr_element|arr_element.delete_all}
 end
 
+delete_all_data
 create_basic_categories
 add_verses_to_model_from_file
 add_information_to_join_table 
