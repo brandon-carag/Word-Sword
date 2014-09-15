@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 def create_basic_categories
-  categories=['Anger','Lust','Fear','Depression','Anxiety','Pride','Materialism']
+  categories=['Anger','Lust','Fear','Depression','Anxiety','Pride','Materialism',"Unbelief in God's Love"]
   categories.each do |category|
     Category.create(name:category)
   end

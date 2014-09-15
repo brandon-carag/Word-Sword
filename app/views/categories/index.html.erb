@@ -1,16 +1,20 @@
-<h6><small class="lead">"For the word of God is living and active and sharper than any two-edged sword..."</small></h6>
 <h4>I am fighting...</h4>
+
 <div class="btn-group-vertical">
+
 <% @all_categories.each do|category| %>
+  <% if category.verses.blank? %>
+    "No Verses Assigned to #{category}" <!-- #MAKE SURE TO INCORPORATE LOGIC TO CONSIDER BLANKS -->
+  <% else %>
+    <!-- <button type="button" class="btn btn-default">
+    <b><%= link_to category.name, verse_path(category.verses.sample) %></b>
+    </button> -->
 
-<% if category.verses.blank? %>
-"Bad Category" <!-- #MAKE SURE TO INCORPORATE LOGIC TO CONSIDER BLANKS -->
-<% else %>
+    <button type="button" class="btn btn-default btn-lg btn-block"> <h5><%= link_to category.name, verse_path(category.verses.sample) %></h5> </button>
 
-<button type="button" class="btn btn-default">
-<b><%= link_to category.name, verse_path(category.verses.sample) %></b>
-</button>
+  <% end %>
 <% end %>
 
-<% end %>
+
+<h6><small class="lead">"For the word of God is living and active and sharper than any two-edged sword..."</small></h6>
 </div>
