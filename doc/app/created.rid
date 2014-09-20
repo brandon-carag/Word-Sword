@@ -1,0 +1,10 @@
+Sat, 20 Sep 2014 08:00:52 -0700
+README.rdoc	Sat, 20 Sep 2014 07:59:51 -0700
+app/controllers/application_controller.rb	Wed, 27 Aug 2014 13:00:34 -0700
+app/controllers/categories_controller.rb	Sun, 14 Sep 2014 17:33:16 -0700
+app/controllers/static_pages_controller.rb	Thu, 28 Aug 2014 22:16:23 -0700
+app/controllers/verses_controller.rb	Thu, 28 Aug 2014 23:26:12 -0700
+app/helpers/application_helper.rb	Wed, 27 Aug 2014 13:00:34 -0700
+app/models/category.rb	Thu, 28 Aug 2014 20:59:55 -0700
+app/models/verse.rb	Thu, 28 Aug 2014 21:01:05 -0700
+app/models/verse_category.rb	Wed, 27 Aug 2014 15:02:51 -0700
